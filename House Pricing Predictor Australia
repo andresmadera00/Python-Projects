@@ -1,0 +1,122 @@
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from tkinter import *
+from tkinter import messagebox
+from tkinter.simpledialog import askfloat
+from tkinter.simpledialog import askinteger
+from tkinter import ttk
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+
+
+def submit():
+
+    Rooms= askinteger("input","Rooms")
+    Bathroom = askinteger("input","Bathroom")
+    YearBuilt = askfloat("input","YearBuilt")
+    Distance = askfloat("input","Distance")
+    Landsize = askfloat("input","Landsize")
+
+    selected = region_name.get()
+
+    num_region = region_map[selected]
+
+    new_data = [[Rooms,Bathroom , YearBuilt, Distance, Landsize, num_region]]
+
+    price_prediction = model.predict(new_data)
+
+    print(f"the prediction price : {price_prediction[0]}")
+
+    result.config(text=f"Price prediction : ${round(price_prediction[0])}")
+
+
+
+#---------------------------------------------    
+
+data = pd.read_csv("melb_data.csv")
+
+
+region_map = {
+        "Eastern Metropolitan": 1,
+        "Eastern Victoria": 2,
+        "Northern Metropolitan": 3,
+        "Northern Victoria": 4,
+        "South-Eastern Metropolitan": 5,
+        "Southern Metropolitan": 6,
+        "Western Metropolitan": 7,
+        "Western Victoria": 8}
+
+
+
+
+data['Regionname'] = data['Regionname'].map(region_map)
+
+
+data = data[['Rooms','Bathroom','YearBuilt',
+             'Distance','Landsize',
+             'Regionname','Price']]
+
+data = data.dropna()
+
+x = data[['Rooms','Bathroom','YearBuilt',
+          'Distance','Landsize','Regionname']]
+
+y = data['Price']
+
+x_train, x_test, y_train, y_test = train_test_split(
+    x, y,
+    test_size=0.2,
+    random_state=0
+)
+
+model = LinearRegression()
+model.fit(x_train, y_train)
+
+# new_data = [[2, 1, 1900, 2.5, 95, 1]]
+
+# price_prediction = model.predict(new_data)
+
+# print(
+#     f"Predicted House Price: ${round(price_prediction[0])}"
+# )
+
+
+#-------------------------------GUI---------------------
+
+
+window =Tk()
+
+window.geometry("450x450")
+
+Label(window,text="Melbourne Housing Snapshot")
+
+btn_Entry_data = Button(window,text="Entry Data ",command=submit)
+btn_Entry_data.pack()
+
+Label(window,text="select Region Name").pack()
+
+region_name = ttk.Combobox(window)
+
+region_name['values'] = (
+    "Eastern Metropolitan",
+    "Eastern Victoria",
+    "Northern Metropolitan",
+    "Northern Victoria",
+    "South-Eastern Metropolitan",
+    "Southern Metropolitan",
+    "Western Metropolitan",
+    "Western Victoria"
+    )
+region_name.pack()
+
+
+result = Label(window,text="")
+result.pack()
+
+
+window.mainloop()
+
+
