@@ -13,7 +13,8 @@ Predicts house prices using bedrooms, bathrooms, and house size.
 
 ### Employee Salary Predictor
 Predicts employee salary using experience, education level, and working hours.
- <img width="453" height="302" alt="image" src="https://github.com/user-attachments/assets/6383e5e6-911d-4c2c-a417-dc19f1518d8b" />
+
+ <img width="400" height="280" alt="image" src="https://github.com/user-attachments/assets/6383e5e6-911d-4c2c-a417-dc19f1518d8b" />
 
 ## Technologies Used
 
@@ -22,6 +23,16 @@ Predicts employee salary using experience, education level, and working hours.
 - Scikit-learn
 - Tkinter
 
+## How to Run
+
+1. Clone the repository
+2. Install required libraries
+
+pip install pandas scikit-learn
+
+3. Run the application
+
+python Employee_Salary_Predictor.py
  
 
 
