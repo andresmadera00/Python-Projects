@@ -31,6 +31,8 @@ Predicts employee salary using experience, education level, and working hours.
 Predicts student grades based on study hours and attendance.
 
 <img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/7b43fe73-e091-427c-b505-397d70c784e0" />
+
+
 ## Technologies Used
 
 - Python
