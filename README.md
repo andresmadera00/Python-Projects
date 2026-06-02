@@ -12,7 +12,7 @@ Predicts if employee stay of leave using Experience, Salary and Overtime.
 
 
 ### House Price Predictor
-Predicts house prices using bedrooms, bathrooms, and house size.
+Predicts house prices in Australia using bedrooms, bathrooms, and house size, Year built, Distance, Region. 
 
 <img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/4976e335-bf81-4ca5-baae-6d18324ee97f" />
 
