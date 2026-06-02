@@ -19,6 +19,8 @@ Predicts house prices using bedrooms, bathrooms, and house size.
 ### House Price Predictor Australia
 Predicts house prices using bedrooms, bathrooms, and house size.
 
+<img width="400" height="406" alt="image" src="https://github.com/user-attachments/assets/fff789c4-30bb-456e-8203-59114d10f521" />
+
 
 ### Employee Salary Predictor
 Predicts employee salary using experience, education level, and working hours.
